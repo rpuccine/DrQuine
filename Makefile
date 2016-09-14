@@ -19,9 +19,12 @@ SRC_COLLEEN = src/Colleen.c
 GRACE = Grace
 SRC_GRACE = src/Grace.c
 
-SRC = $(SRC_COLLEEN) $(SRC_GRACE)
+SULLY = Sully
+SRC_SULLY = src/Sully.c
+
+SRC = $(SRC_COLLEEN) $(SRC_GRACE) $(SRC_SULLY)
 OBJ = $(SRC:.c=.o)
-EXE = $(COLLEEN) $(GRACE)
+EXE = $(COLLEEN) $(GRACE) $(SULLY)
 
 all: $(EXE)
 
@@ -29,6 +32,9 @@ $(COLLEEN): $(SRC_COLLEEN:.c=.o)
 	$(CC) -o $@ $<
 
 $(GRACE): $(SRC_GRACE:.c=.o)
+	$(CC) -o $@ $<
+
+$(SULLY): $(SRC_SULLY:.c=.o)
 	$(CC) -o $@ $<
 
 %.o: %.c
