@@ -14,10 +14,10 @@ CC = clang
 CFLAGS = -Wall -Wextra -Werror
 
 COLLEEN = Colleen
-SRC_COLLEEN = Colleen.c
+SRC_COLLEEN = src/Colleen.c
 
 GRACE = Grace
-SRC_GRACE = Grace_2.c
+SRC_GRACE = src/Grace.c
 
 SRC = $(SRC_COLLEEN) $(SRC_GRACE)
 OBJ = $(SRC:.c=.o)
