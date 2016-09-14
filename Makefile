@@ -12,15 +12,24 @@
 
 CC = clang
 CFLAGS = -Wall -Wextra -Werror
-SRCS = Colleen.c
-SRC = $(addprefix src/, $(SRCS))
+
+COLLEEN = Colleen
+SRC_COLLEEN = Colleen.c
+
+GRACE = Grace
+SRC_GRACE = Grace_2.c
+
+SRC = $(SRC_COLLEEN) $(SRC_GRACE)
 OBJ = $(SRC:.c=.o)
-NAME = Colleen
+EXE = $(COLLEEN) $(GRACE)
 
-all: $(NAME)
+all: $(EXE)
 
-$(NAME): $(OBJ)
-	$(CC) -o $@ $(OBJ)
+$(COLLEEN): $(SRC_COLLEEN:.c=.o)
+	$(CC) -o $@ $<
+
+$(GRACE): $(SRC_GRACE:.c=.o)
+	$(CC) -o $@ $<
 
 %.o: %.c
 	$(CC) -o $@ -c $< $(CFLAGS)
@@ -29,6 +38,6 @@ clean:
 	rm -rf $(OBJ)
 
 fclean: clean
-	rm -rf $(NAME)
+	rm -rf $(EXE)
 
 re: fclean all
